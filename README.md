@@ -1,6 +1,6 @@
 # ulauncher-raindrop
 
-> Search in your [Raindrop](https://raindrop.io/) bookmarks from [Ulauncher](https://ulauncher.io/)
+> Search in your [Raindrop](https://raindrop.io/) bookmarks directly from [Ulauncher](https://ulauncher.io/).
 
 [![Ulauncher Extension](https://img.shields.io/badge/Ulauncher-Extension-yellowgreen.svg?style=for-the-badge)](https://ext.ulauncher.io/)
 [![CI Status](https://img.shields.io/github/workflow/status/brpaz/ulauncher-raindrop/CI?color=orange&label=actions&logo=github&logoColor=orange&style=for-the-badge)](https://github.com/brpaz/ulauncher-raindrop)
@@ -18,7 +18,7 @@
 
 * [Ulauncher](https://github.com/Ulauncher/Ulauncher) > 5.0
 * Python >= 3.7
-* python-raindropio - `pip install --user python-raindropio==0.0.4` 
+* python-raindropio - `pip install --user python-raindropio==0.0.4`
 
 ## Install
 
@@ -40,8 +40,11 @@ After the app is created, click on it to open the details and create a "Test Tok
 
 ### Keywords
 
-* Type ```rd <query>``` on Ulauncher input to search your bookmarks.
-* Type ```rdopen``` to open Raindrop Web App.
+The following keywords are specified by this extension:
+
+* ```rd <query>``` to to search on all your bookmarks.
+* ```rdopen``` to open Raindrop Web App.
+* ```rdunsorted``` to search on your `Unsorted` bookmarks
 
 ## Development
 
@@ -76,10 +79,10 @@ You can also contribute with [GitHub Sponsors](https://github.com/sponsors/brpaz
 
 Or if you prefer a one time donation to the project, you can simple:
 
-<a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" 
+<a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee"
 style="height: auto !important;width: auto !important;" ></a>
 
---- 
+---
 ## License
 
 MIT &copy; Bruno Paz

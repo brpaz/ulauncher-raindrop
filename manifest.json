@@ -1,24 +1,30 @@
 {
   "required_api_version": "^2.0.0",
   "name": "Raindrop",
-  "description": "Access Raindrop bookmarks",
+  "description": "Search your Raindrop bookmarks",
   "developer_name": "Bruno Paz",
   "icon": "images/icon.png",
   "options": {
-    "query_debounce": 0.3
+    "query_debounce": 0.2
   },
   "preferences": [
     {
-      "id": "kw",
-      "type": "keyword",
-      "name": "Raindrop",
-      "default_value": "rd"
-    },
-    {
       "id": "kw_open",
       "type": "keyword",
-      "name": "Raindrop Open",
+      "name": "Raindrop: Open In browser",
       "default_value": "rdopen"
+    },
+    {
+      "id": "kw_unsorted",
+      "type": "keyword",
+      "name": "Raindrop: Unsorted",
+      "default_value": "rd:unsorted"
+    },
+    {
+      "id": "kw",
+      "type": "keyword",
+      "name": "Raindrop: Search",
+      "default_value": "rd"
     },
     {
       "id": "access_token",

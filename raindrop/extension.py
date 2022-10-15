@@ -6,7 +6,7 @@ from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.OpenUrlAction import OpenUrlAction
 from raindrop.preferences import PreferencesEventListener, PreferencesUpdateEventListener
-from raindropio import Raindrop
+from raindropio import Raindrop, CollectionRef
 from raindrop.query_listener import KeywordQueryEventListener
 
 logger = logging.getLogger(__name__)
@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 class RaindropExtension(Extension):
     """ Main Extension Class  """
+
     def __init__(self):
         """ Initializes the extension """
         super(RaindropExtension, self).__init__()
@@ -40,7 +41,37 @@ class RaindropExtension(Extension):
         ])
 
     def search(self, query):
-        drops = Raindrop.search(self.rd_client, word=query, perpage=10)
+        drops = Raindrop.search(
+            self.rd_client,
+            word=query,
+            perpage=10,
+            collection=CollectionRef({"$id": 0}),
+        )
+
+        if len(drops) == 0:
+            return RenderResultListAction([
+                ExtensionResultItem(
+                    icon='images/icon.png',
+                    name='No results found matcing your criteria',
+                    highlightable=False)
+            ])
+
+        items = []
+        for drop in drops:
+            items.append(
+                ExtensionResultItem(icon='images/icon.png',
+                                    name=drop.title,
+                                    description=drop.excerpt,
+                                    on_enter=OpenUrlAction(drop.link)))
+        return RenderResultListAction(items)
+
+    def unsorted(self, query):
+        drops = Raindrop.search(
+            self.rd_client,
+            word=query,
+            perpage=10,
+            collection=CollectionRef({"$id": -1}),
+        )
 
         if len(drops) == 0:
             return RenderResultListAction([
